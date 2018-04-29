@@ -25,7 +25,8 @@ class App extends Component {
         var electionId = 2000;
 
         var req = window.gapi.client.request({
-            'path' : '/civicinfo/v2/voterinfo',
+            // 'path' : '/civicinfo/v2/voterinfo',
+            'path': '/civicinfo/v2/representatives',
             'params' : {'electionId' : electionId, 'address' : address}
         });
        req.execute((results) => {
