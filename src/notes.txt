@@ -1,0 +1,27 @@
+Notes:
+
+MVP: As a user I want to see who are my representatives
+
+Selector:
+
+Actions:
+- put representatives information in the Store
+
+Services:
+- get representatives with google api
+
+Utils:
+- transform raw representatives object into good object (null for missing values)
+
+Store:
+{
+  representatives: [{
+    name: '',
+    photoUrl: '',
+    office: '',
+    address: '',
+    phone : '',
+    email: ''
+  },
+  {}]
+}
