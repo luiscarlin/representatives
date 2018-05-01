@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { fetchRepresentatives } from './services/fetchRepresentatives'
 
 const API_KEY = 'AIzaSyC63iYNVwNtcZ5e_6-fr2X5kjlSANRPXXc'
-const address = "2861 Mondavi Lane, Hilliiard, OH USA"
 
 class App extends Component {
   loadYoutubeApi() {
@@ -14,17 +14,7 @@ class App extends Component {
       window.gapi.load('client', () => {
         window.gapi.client.setApiKey(API_KEY);
 
-       // var electionId = 2000;
-
-        var req = window.gapi.client.request({
-            // 'path' : '/civicinfo/v2/voterinfo',
-            'path': '/civicinfo/v2/representatives',
-            // 'params' : {'electionId' : electionId, 'address' : address}
-            'params' : {'address' : address}
-        });
-       req.execute((results) => {
-         console.log('results', results)
-       })
+        fetchRepresentatives().then(console.log)
       })
     }
     document.body.appendChild(script);
