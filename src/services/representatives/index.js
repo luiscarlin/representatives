@@ -1,3 +1,3 @@
 import fetchRepresentatives from './fetchRepresentatives'
 
-export default fetchRepresentatives
+export { fetchRepresentatives }

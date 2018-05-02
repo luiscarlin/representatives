@@ -6,8 +6,8 @@ const fetchRepresentatives = (address) => {
   return gapi.request({
     'path': ENDPOINT,
     'params': { 'address': address }
-  }).then((response) => {
-    return response.result
+  }).then((result) => {
+    return result
   }).catch(() => {
     return []
   })
