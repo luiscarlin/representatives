@@ -1,3 +1,3 @@
-import gapi from './'
+import { initializeGapi, request } from './'
 
-export { initializeClient, request }
+export { initializeGapi, request }

@@ -32,7 +32,7 @@ const initializeGapi = () => {
           reject('gapi client failed to load')
         },
         timeout: 5000,
-        timeout: () => {
+        ontimeout: () => {
           reject('gapi client failed to load in 5 seconds')
         }
       })
@@ -41,4 +41,4 @@ const initializeGapi = () => {
   })
 }
 
-export { initializeClient, request }
+export { initializeGapi, request }
