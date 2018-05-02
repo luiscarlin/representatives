@@ -1,3 +1,3 @@
 import gapi from './'
 
-export default request
+export { initializeClient, request }

@@ -1,9 +1,9 @@
-import gapi from '../gapi'
+import { request } from '../gapi'
 
 const ENDPOINT = '/civicinfo/v2/representatives'
 
 const fetchRepresentatives = (address) => {
-  return gapi.request({
+  return request({
     'path': ENDPOINT,
     'params': { 'address': address }
   }).then((result) => {
