@@ -10,6 +10,9 @@ Actions:
 Services:
 - get representatives with google api
 
+Wrappers:
+- Google Wrappers
+
 Utils:
 - transform raw representatives object into good object (null for missing values)
 
