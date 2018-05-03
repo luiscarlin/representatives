@@ -1,9 +1,19 @@
-const SearchBox = ({placeHolder, }) => (
-  <div>
-    <input type='text' placeHolder= {placeHolder}/>
-    <button></button>
-  </div>
-)
+import React from 'react'
 
+export default class SearchBox extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      searchTerm: ''
+    }
+  }
 
-export default SearchBox
+  render() {
+    return (
+      <div>
+        <input type='text' onChange={(event) => this.setState({ searchTerm: event.target.value })} />
+        <button onClick={() => this.props.onButtonClick(this.state.searchTerm)}></button>
+      </div>
+    )
+  }
+}
