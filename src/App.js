@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SearchBox onButtonClick={console.log}/>        
+        <SearchBox placeholder='Enter your Address' onButtonClick={console.log}/>        
       </div>
     );
   }
