@@ -1,0 +1,1 @@
+export const SET_ADDRESS_TYPE = 'SET_ADDRESS'
