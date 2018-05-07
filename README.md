@@ -1,3 +1,3 @@
 ## Representatives
 
-Lists your representatives with your address
+Find your representatives by searching with your address
