@@ -1,4 +1,4 @@
-import SET_ADDRESS_TYPE from '../types'
+import SET_ADDRESS from './types'
 import { getSetAddressAction } from './'
 
 describe('Location Actions', () => {
@@ -6,7 +6,7 @@ describe('Location Actions', () => {
     const text = 'something'
 
     const expectedAction = {
-      type: SET_ADDRESS_TYPE,
+      type: SET_ADDRESS,
       value: text
     }
     expect(getSetAddressAction(text)).toEqual(expectedAction)

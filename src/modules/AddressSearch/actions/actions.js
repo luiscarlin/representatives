@@ -1,8 +1,8 @@
-import { SET_ADDRESS } from '../types'
+import { SET_ADDRESS } from './types'
 
 const getSetAddressAction = (address) => {
   return {
-    type: SET_ADDRESS,
+    type: SET_ADDRESS_TYPE,
     value: address
   }
 }
