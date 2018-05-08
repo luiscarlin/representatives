@@ -4,7 +4,7 @@ const DEFAULT_STATE = {
   address: ''
 }
 
-const location = (state = DEFAULT_STATE, action) => {
+const addressSearch = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case SET_ADDRESS_TYPE:
       return Object.assign({}, state, { address: action.value })
@@ -13,4 +13,4 @@ const location = (state = DEFAULT_STATE, action) => {
   }
 }
 
-export default location
+export default addressSearch
