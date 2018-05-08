@@ -28,3 +28,59 @@ Store:
   },
   {}]
 }
+
+folder structure
+================
+
+lib
+  Button
+    index.js
+    Button.jsx
+    Button.test.jsx
+    Button.scss
+  InputBox
+    index.js
+    InputBox.jsx
+    InputBox.test.jsx
+    InputBox.scss
+
+modules
+  Feature
+    index.js (export anything that is required to the outer project)
+    components
+      FeatureComponent.jsx
+      FeatureComponent.test.jsx
+      FeatureComponent.scss
+    actions
+      featureActionTypes.js
+      featureActionsCreators.js
+    connectors
+      FeatureConnector.jsx
+      FeatureConnector.test.jsx
+    reducers
+      featureReducer.js
+      featureReducer.test.js
+    sagas
+      feature-saga.js
+      feature-saga.test.js
+    selectors
+      feature-selector.js
+
+core
+  Application
+    index.js
+    Application.jsx
+    Aplication.test.jsx
+    Application.scss
+
+init
+  store
+    index.js
+    store.js
+    store.test.js
+
+utils
+index.js
+
+
+
