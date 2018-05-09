@@ -1,16 +1,14 @@
-import { SET_ADDRESS_TYPE } from '../../actions/types'
+import { SET_ADDRESS } from '../actions/types'
 
 const DEFAULT_STATE = {
   address: ''
 }
 
-const location = (state = DEFAULT_STATE, action) => {
+export default function reducer (state = DEFAULT_STATE, action) {
   switch (action.type) {
-    case SET_ADDRESS_TYPE:
+    case SET_ADDRESS:
       return Object.assign({}, state, { address: action.value })
     default:
       return state
   }
 }
-
-export default location
