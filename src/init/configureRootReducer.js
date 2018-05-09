@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import * as AddressSearch from '../modules/AddressSearch'
+import { reducer as AddressSearchReducer } from '../modules/AddressSearch'
 
 const rootReducer = combineReducers({
-  addressSearch: AddressSearch.reducer
+  addressSearch: AddressSearchReducer
 })
 
 export default rootReducer

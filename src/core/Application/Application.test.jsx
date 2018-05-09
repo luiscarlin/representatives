@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Application from './Application'
+import Application from './'
 
 describe('Application', () => {
   test('renders without crashing', () => {
@@ -9,4 +9,3 @@ describe('Application', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 })
-

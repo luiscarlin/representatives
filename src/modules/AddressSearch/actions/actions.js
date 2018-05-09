@@ -1,10 +1,10 @@
 import { SET_ADDRESS } from './types'
 
-const getSetAddressAction = (address) => {
+const setAddress = (address) => {
   return {
-    type: SET_ADDRESS_TYPE,
+    type: SET_ADDRESS,
     value: address
   }
 }
 
-export { getSetAddressAction }
+export { setAddress }
