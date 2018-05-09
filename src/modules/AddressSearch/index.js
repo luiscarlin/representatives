@@ -1,4 +1,4 @@
 import reducer from './reducer'
-import AddressSearch from './components/AddressSearch.jsx'
+import AddressSearchConnector from './connectors/AddressSearchConnector'
 
-export { reducer, AddressSearch }
+export { reducer, AddressSearchConnector }
