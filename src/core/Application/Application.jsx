@@ -1,9 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
+import './Application.css'
 import configureStore from '../../init/configureStore'
 
-import './Application.css'
-// import SearchBox from './presenters/SearchBox'
+import { AddressSearch } from '../../modules/AddressSearch'
 
 const store = configureStore()
 
@@ -12,8 +12,7 @@ class Application extends React.Component {
     return (
       <Provider store={store}>
         <div className="App">
-          hello
-          {/*<SearchBox placeholder='Enter your Address' onButtonClick={console.log} />*/}
+          <AddressSearch />
         </div>
       </Provider>
     )
