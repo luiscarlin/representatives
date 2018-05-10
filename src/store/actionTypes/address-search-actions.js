@@ -1,0 +1,3 @@
+export default {
+  RESET_STATE: 'ADDRESS_SEARCH@RESET_STATE'
+}
