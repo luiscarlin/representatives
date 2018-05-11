@@ -1,10 +1,6 @@
 import React from 'react'
-import SearchBox from '../../../lib/SearchBox'
+import SearchBox from './generic/search-box'
 
-export default class AddressSearch extends React.Component {
-  render() {
-    return (
-      <SearchBox placeholder='Enter your address' onButtonClick={this.props.onSearchClick}/>
-    )
-  }
-}
+export default ({ onSearchClick }) =>  (
+  <SearchBox placeholder='Enter your address' onButtonClick={onSearchClick}/>
+)
