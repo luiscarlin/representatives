@@ -1,5 +1,5 @@
-import AddressSearch from './AddressSearch.jsx'
-import SearchBox from '../../../lib/SearchBox'
+import AddressSearch from './address-search-section'
+import SearchBox from './generic/search-box'
 
 describe('Address Search', () => {
   let subject, onSearchClickSpy

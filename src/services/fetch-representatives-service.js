@@ -1,4 +1,4 @@
-import { request } from '../gapi'
+import { request } from './gapi-service'
 
 const ENDPOINT = '/civicinfo/v2/representatives'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import AddressSearchSection from './containers/address-search-section-container'
 
 export default () => (
-  <div className="App">
+  <div>
     <AddressSearchSection />
   </div>
 )

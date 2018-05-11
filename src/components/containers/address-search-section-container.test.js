@@ -1,9 +1,9 @@
-import AddressSearch from '../components/AddressSearch.jsx'
-import AddressSearchConnector from './AddressSearchConnector'
+import AddressSearch from '../presenters/address-search-section'
+import AddressSearchContainer from './address-search-section-container'
 
 describe('Address Search Connector', () => {
   it('renders an address search component', () => {
-    const mountedComponent = mountComponentWithState(<AddressSearchConnector />, {})
+    const mountedComponent = mountComponentWithState(<AddressSearchContainer />, {})
     expect(mountedComponent.node.find(AddressSearch)).toHaveLength(1)
   })
 
