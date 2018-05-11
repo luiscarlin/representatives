@@ -1,7 +1,7 @@
 let gapiRequestSpy = jest.fn()
-jest.setMock('../gapi', { request: gapiRequestSpy})
+jest.setMock('./gapi-service', { request: gapiRequestSpy})
 
-const fetchRepresentatives = require('./fetchRepresentatives').default
+const fetchRepresentatives = require('./fetch-representatives-service').default
 
 describe('Fetch Representatives', () => {
   const fakeAddress = 'my house'

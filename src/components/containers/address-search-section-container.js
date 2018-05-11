@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import AddressSearch from '../components/AddressSearch.jsx'
+import addressSearchSection from '../presenters/address-search-section'
 
 const mapDispatchToProps = dispatch => ({
   onSearchClick: (address) => {
@@ -7,4 +7,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(null, mapDispatchToProps)(AddressSearch)
+export default connect(null, mapDispatchToProps)(addressSearchSection)

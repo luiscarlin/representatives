@@ -1,4 +1,4 @@
-import SearchBox from './'
+import SearchBox from './search-box'
 
 describe('Search Box', () => {
   let subject, onButtonClick
