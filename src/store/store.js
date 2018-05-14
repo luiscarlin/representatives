@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers/root-reducer'
+import retrieveRepresentativesSaga from './sagas/retrieve-representatives-saga'
 
 const initialize = () => {
   const sagaMiddleware = createSagaMiddleware()
@@ -13,6 +14,8 @@ const initialize = () => {
       applyMiddleware(sagaMiddleware)
     )
   )
+
+  sagaMiddleware.run(retrieveRepresentativesSaga)
 
   window.Store = store
 
