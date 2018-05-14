@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import addressSearchSection from '../presenters/address-search-section'
+import actionCreators from '../../store/actionCreators'
 
 const mapDispatchToProps = dispatch => ({
   onSearchClick: (address) => {
-    console.log(address, 'storeAddress > onButtonClick clicked')
+    dispatch(actionCreators.addressSearch.setAddress(address))
   }
 })
 
