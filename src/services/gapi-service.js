@@ -1,7 +1,7 @@
 const API_KEY = 'AIzaSyC63iYNVwNtcZ5e_6-fr2X5kjlSANRPXXc'
 
 const request = ({ path, params}) => {
-  return new Promise((resolve, request) => {
+  return new Promise((resolve, reject) => {
     getClient()
       .then(client => client.request({ path, params }))
       .then(response => resolve(response))
