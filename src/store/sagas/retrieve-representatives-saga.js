@@ -1,8 +1,10 @@
 import { take, call, put, select, race } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import types from '../actionTypes'
+import actionCreators from '../actionCreators'
 import { getAddress } from '../selectors/address-selectors'
 import fetchRepresentatives from '../../services/fetch-representatives-service'
+import repDataTransformer from '../../utils/representative-transformer'
 
 
 export default function * runSaga () {
@@ -21,7 +23,13 @@ export default function * runSaga () {
       continue
     }
     
-    console.log('your representatives are', representatives)
+    console.log('your representatives are', representatives.result)
+
+    const formattedRepresentatives = yield call(repDataTransformer, representatives.result)
+    console.log('formatted', formattedRepresentatives)
+
+    yield put(actionCreators.representatives.setRepresentatives(formattedRepresentatives))
+
 
 
     // const currentValueInDisplay = yield select(getDisplayValue)
