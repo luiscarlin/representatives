@@ -3,6 +3,6 @@ export default {
     address: ''
   },
   representatives: {
-    data: null
+    data: []
   }
 }

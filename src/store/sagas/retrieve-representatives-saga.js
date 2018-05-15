@@ -12,19 +12,20 @@ export default function * runSaga () {
     
     const address = yield select(getAddress)
 
-    const { representatives } = yield race({
-      representatives: call(fetchRepresentatives, address),
+    const { rawRepresentativesData } = yield race({
+      rawRepresentativesData: call(fetchRepresentatives, address),
       timeout: call(delay, 20000)
     })
     
-    if (representatives.length === 0) {
-      console.log('no representatives found!')
+    if (rawRepresentativesData.length === 0) {
+      console.log('there was a problem getting your representatves using the address')
       continue
     }
 
-    const formattedRepresentatives = yield call(repDataTransformer, representatives.result)
-    console.log('formatted', formattedRepresentatives)
+    console.log('raw', rawRepresentativesData)
+    const formattedRepresentativesData = yield call(repDataTransformer, rawRepresentativesData)
+    console.log('formatted', formattedRepresentativesData)
 
-    yield put(actionCreators.representatives.setRepresentatives(formattedRepresentatives))
+    yield put(actionCreators.representatives.setRepresentatives(formattedRepresentativesData))
   }
 }
