@@ -6,7 +6,6 @@ import { getAddress } from '../selectors/address-selectors'
 import fetchRepresentatives from '../../services/fetch-representatives-service'
 import repDataTransformer from '../../utils/representative-transformer'
 
-
 export default function * runSaga () {
   while (true) {
     yield take(types.saga.RETRIEVE_REPRESENTATIVES)
@@ -22,31 +21,10 @@ export default function * runSaga () {
       console.log('no representatives found!')
       continue
     }
-    
-    console.log('your representatives are', representatives.result)
 
     const formattedRepresentatives = yield call(repDataTransformer, representatives.result)
     console.log('formatted', formattedRepresentatives)
 
     yield put(actionCreators.representatives.setRepresentatives(formattedRepresentatives))
-
-
-
-    // const currentValueInDisplay = yield select(getDisplayValue)
-
-    // if (!currentValueInDisplay) {
-    //   continue
-    // }
-
-    // let newValueForDisplay
-
-    // try {
-    //   newValueForDisplay = yield call(eval, currentValueInDisplay)
-    // } catch (e) {
-    //   continue
-    // }
-
-    // yield put(getClearDisplayAction())
-    // yield put(getPushToDisplayAction(newValueForDisplay))
   }
 }

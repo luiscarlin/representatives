@@ -4,5 +4,5 @@ import representativesReducer from './representatives-reducer'
 
 export default combineReducers({
   addressSearch: addressSearchReducer,
-  representatvies: representativesReducer
+  representatives: representativesReducer
 })
