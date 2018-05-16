@@ -17,7 +17,7 @@ describe('Fetch Representatives', () => {
   })
 
   test('returns list of representatives when gapi call is successful', async () => {
-    gapiRequestSpy.mockReturnValue(Promise.resolve('your representatives'))
+    gapiRequestSpy.mockReturnValue(Promise.resolve({ status: 200, result: 'your representatives'}))
     const result = await fetchRepresentatives(fakeAddress)
     expect(result).toBe('your representatives')
   })
