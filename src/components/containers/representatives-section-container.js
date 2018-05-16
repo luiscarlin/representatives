@@ -1,8 +1,9 @@
 import { connect } from 'react-redux'
 import representativesSection from '../presenters/representatives-section'
+import selectors from '../../store/selectors'
 
 const mapStateToProps = state => ({
-  representatives: state.representatives.data
+  representatives: selectors.representatives.getRepresentatives()
 })
 
 export default connect(mapStateToProps)(representativesSection)
