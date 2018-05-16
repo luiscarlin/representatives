@@ -1,15 +1,28 @@
 import AddressSearch from '../presenters/address-search-section'
 import AddressSearchContainer from './address-search-section-container'
+import actionCreators from '../../store/actionCreators'
 
 describe('Address Search Connector', () => {
+  let mountedComponent
+
+  beforeEach(() => {
+    mountedComponent = mountComponentWithState(<AddressSearchContainer />, {})
+  })
+
   it('renders an address search component', () => {
-    const mountedComponent = mountComponentWithState(<AddressSearchContainer />, {})
     expect(mountedComponent.node.find(AddressSearch)).toHaveLength(1)
   })
 
-  // test('dispatches action to clear display when clicked', () => {
-  //   let mountedComponent = mountComponentWithState(<AllCancelButtonConnector value="hello" />, {})
-  //   mountedComponent.node.find('button').simulate('click')
-  //   expect(mountedComponent.dispatchMock).toHaveBeenCalledWith(getClearDisplayAction())
-  // })
+  describe('when search button is clicked', () => {
+    it('dispatches a call to set the addres in the store', () => {
+      mountedComponent.node.find('input').simulate('change', { target: { value: 'some address' } })
+      mountedComponent.node.find('button').simulate('click')
+      expect(mountedComponent.dispatchMock).toHaveBeenCalledWith(actionCreators.addressSearch.setAddress('some address'))
+    })
+
+    it('dispatches a call to retrieve representatives', () => {
+      mountedComponent.node.find('button').simulate('click')
+      expect(mountedComponent.dispatchMock).toHaveBeenCalledWith(actionCreators.saga.retrieveRepresentatives())
+    })
+  })
 })
