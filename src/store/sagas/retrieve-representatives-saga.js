@@ -12,15 +12,15 @@ export default function * runSaga () {
 
     const address = yield select(selectors.address.getAddress)
 
-    const { rawRepresentativesData } = yield race({
-      rawRepresentativesData: call(fetchRepresentatives, address),
+    const { representativesData } = yield race({
+      representativesData: call(fetchRepresentatives, address),
       timeout: call(delay, 20000)
     })
 
-    if (rawRepresentativesData.length === 0) {
+    if (representativesData.length === 0) {
       continue
     }
 
-    yield put(actionCreators.representatives.setRepresentatives(formattedRepresentativesData))
+    yield put(actionCreators.representatives.setRepresentatives(representativesData))
   }
 }
