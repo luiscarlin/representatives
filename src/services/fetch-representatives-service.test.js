@@ -1,29 +1,52 @@
-let gapiRequestSpy = jest.fn()
-jest.setMock('./gapi-service', { request: gapiRequestSpy})
+let gapiRequestMock = jest.fn()
+jest.setMock('./gapi-service', { request: gapiRequestMock})
+
+let repDataTransformerMock = jest.fn()
+jest.setMock('../utils/representative-transformer', repDataTransformerMock)
 
 const fetchRepresentatives = require('./fetch-representatives-service').default
 
 describe('Fetch Representatives', () => {
   const fakeAddress = 'my house'
 
-  test('makes a "representatives" request to gapi service with the address', () => {
-    gapiRequestSpy.mockReturnValue(Promise.resolve())
+  it('makes a "representatives" request to gapi service with the address', () => {
+    gapiRequestMock.mockReturnValue(Promise.resolve())
 
     fetchRepresentatives(fakeAddress)
-    expect(gapiRequestSpy).toHaveBeenCalledWith({
+    expect(gapiRequestMock).toHaveBeenCalledWith({
       'path': '/civicinfo/v2/representatives',
       'params': { 'address': fakeAddress}
     })
   })
 
-  test('returns list of representatives when gapi call is successful', async () => {
-    gapiRequestSpy.mockReturnValue(Promise.resolve('your representatives'))
+  it('transforms the rep data when gapi call is successful', async () => {
+    gapiRequestMock.mockReturnValue(Promise.resolve({ status: 200, result: 'your representatives'}))
     const result = await fetchRepresentatives(fakeAddress)
-    expect(result).toBe('your representatives')
+    expect(repDataTransformerMock).toHaveBeenCalledWith('your representatives')
   })
 
-  test('returns an emfpty list when gapi call fails', async () => {
-    gapiRequestSpy.mockReturnValue(Promise.reject('something horrible happened'))
+  it('returns the formatted list of representatiives', async () => {
+    repDataTransformerMock.mockReturnValue(['person1', 'person2'])
+    gapiRequestMock.mockReturnValue(Promise.resolve({ status: 200, result: 'your representatives'}))
+    const result = await fetchRepresentatives(fakeAddress)
+    expect(result).toEqual([ 'person1', 'person2' ])
+  })
+
+  it('returns an empty list when gapi call fails', async () => {
+    gapiRequestMock.mockReturnValue(Promise.reject('something horrible happened'))
+    const result = await fetchRepresentatives(fakeAddress)
+    expect(result).toEqual([])
+  })
+
+  it('returns an empty list when gapi response is not 200', async () => {
+    gapiRequestMock.mockReturnValue(Promise.resolve({ status: 400, result: 'something went bad'}))
+    const result = await fetchRepresentatives(fakeAddress)
+    expect(result).toEqual([])
+  })
+
+  it('returns an empty list when transformer returns null', async () => {
+    repDataTransformerMock.mockReturnValue(null)
+    gapiRequestMock.mockReturnValue(Promise.resolve({ status: 200, result: 'your representatives'}))
     const result = await fetchRepresentatives(fakeAddress)
     expect(result).toEqual([])
   })
