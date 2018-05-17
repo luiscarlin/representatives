@@ -10,7 +10,7 @@ export default function * runSaga () {
   while (true) {
     yield take(types.saga.RETRIEVE_REPRESENTATIVES)
 
-    const address = yield select(selectors.address.getAddress())
+    const address = yield select(selectors.address.getAddress)
 
     const { rawRepresentativesData } = yield race({
       rawRepresentativesData: call(fetchRepresentatives, address),
