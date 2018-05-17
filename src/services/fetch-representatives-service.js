@@ -17,7 +17,7 @@ const requestRepresentatves = (address) => {
 const fetchRepresentatives = async (address) => {
   const response = await requestRepresentatves(address)
 
-  if (!response || response.status != 200) {
+  if (!response || response.status !== 200) {
     return []
   }
 

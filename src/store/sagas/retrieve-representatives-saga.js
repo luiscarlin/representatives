@@ -4,7 +4,6 @@ import types from '../actionTypes'
 import actionCreators from '../actionCreators'
 import selectors from '../selectors'
 import fetchRepresentatives from '../../services/fetch-representatives-service'
-import repDataTransformer from '../../utils/representative-transformer'
 
 export default function * runSaga () {
   while (true) {
