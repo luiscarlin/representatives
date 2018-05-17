@@ -1,4 +1,5 @@
 import { request } from './gapi-service'
+import repDataTransformer from '../utils/representative-transformer'
 
 const ENDPOINT = '/civicinfo/v2/representatives'
 
@@ -15,12 +16,18 @@ const requestRepresentatves = (address) => {
 
 const fetchRepresentatives = async (address) => {
   const response = await requestRepresentatves(address)
-  
-  if (response && response.status === 200) {
-    return response.result
+
+  if (!response || response.status != 200) {
+    return []
   }
 
-  return []
+  const formattedRepData = repDataTransformer(response.result)
+
+  if (!formattedRepData) {
+    return []
+  }
+
+  return formattedRepData
 }
 
 export default fetchRepresentatives

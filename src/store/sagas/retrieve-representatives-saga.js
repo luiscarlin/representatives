@@ -18,13 +18,8 @@ export default function * runSaga () {
     })
 
     if (rawRepresentativesData.length === 0) {
-      console.log('there was a problem getting your representatves using the address')
       continue
     }
-
-    console.log('raw', rawRepresentativesData)
-    const formattedRepresentativesData = yield call(repDataTransformer, rawRepresentativesData)
-    console.log('formatted', formattedRepresentativesData)
 
     yield put(actionCreators.representatives.setRepresentatives(formattedRepresentativesData))
   }
