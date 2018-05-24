@@ -1,8 +1,12 @@
 import React from 'react'
+import Card from './generic/card'
+
+const representativeCards = (representatives) => (
+  representatives.map((rep, index) => <Card person={rep} key={index} />)
+)
 
 export default ({ representatives }) => (
   <div>
-    { representatives.length > 0 ? <div>{ representatives.length } representatives found </div>  : '' }
-    { representatives.map((rep, index) => (<div key={index}>{rep.name}, {rep.party}, {rep.email}</div>)) }
+    { representativeCards(representatives) }
   </div>
 )
