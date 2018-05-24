@@ -1,9 +1,9 @@
 import React from 'react'
 
 export default ({ person }) => (
-  <div>
+  <div className='card-container'>
     <div className='photo'>
-      <img src={person.photoUrl}/>
+      <img src={person.photoUrl} alt={person.name}/>
       <div className='name'>{person.name}</div>
       <div className='email'>{person.email}</div>
       <div className='phone'>{person.phone}</div>
