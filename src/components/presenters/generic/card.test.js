@@ -1,28 +1,37 @@
 import Card from './card'
 
 describe('Card', () => {
+  let person, subject
+
+  beforeEach(() => {
+    person = {
+      photoUrl: 'http://some/image',
+      name: 'Pedro P. Pedrozo',
+      email: 'pedro@pedro.com',
+      phone: '(777) 777-1111',
+      address: '123 Main St. Columbus, OH 43535'
+    }
+
+    subject = shallow(<Card person={person} />)
+  })
+
   it('has the photo of the person', () => {
-    const subject = shallow(<Card photoUrl='http://some/image' />)
-    expect(subject.find('img').props().src).toEqual('http://some/image')
+    expect(subject.find('img').props().src).toEqual(person.photoUrl)
   })
 
   it('has the name of the person', () => {
-    const subject = shallow(<Card name='Pedro P. Pedrozo' />)
-    expect(subject.find('.name').text()).toEqual('Pedro P. Pedrozo')
+    expect(subject.find('.name').text()).toEqual(person.name)
   })
 
   it('has the email of the person', () => {
-    const subject = shallow(<Card email='pedro@pedro.com' />)
-    expect(subject.find('.email').text()).toEqual('pedro@pedro.com')
+    expect(subject.find('.email').text()).toEqual(person.email)
   })
 
   it('has the phone number of the person', () => {
-    const subject = shallow(<Card phone='(777) 777-1111' />)
-    expect(subject.find('.phone').text()).toEqual('(777) 777-1111')
+    expect(subject.find('.phone').text()).toEqual(person.phone)
   })
 
   it('has the address of the person', () => {
-    const subject = shallow(<Card address='123 Main St. Columbus, OH 43535' />)
-    expect(subject.find('.address').text()).toEqual('123 Main St. Columbus, OH 43535')
+    expect(subject.find('.address').text()).toEqual(person.address)
   })
 })
