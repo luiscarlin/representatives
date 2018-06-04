@@ -4,7 +4,7 @@ import RepresentativesSection from './containers/representatives-section-contain
 import styled from 'styled-components'
 
 const App = styled.div`
-  background-color: #2e323a;
+  background-color: #363636;
   height: 100vh;
   width: 100vw;
 `
@@ -21,7 +21,6 @@ const AddressSearchWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 50%;
-
 `
 
 export default () => (
