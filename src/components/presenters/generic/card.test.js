@@ -16,11 +16,11 @@ describe('Card', () => {
   })
 
   it('has the photo of the person', () => {
-    expect(subject.find('img').props().src).toEqual(person.photoUrl)
+    expect(subject.find('.image').props().src).toEqual(person.photoUrl)
   })
 
   it('should show person name when image fails to load', () => {
-    expect(subject.find('img').props().alt).toEqual(person.name)
+    expect(subject.find('.image').props().alt).toEqual(person.name)
   })
 
   it('has the name of the person', () => {

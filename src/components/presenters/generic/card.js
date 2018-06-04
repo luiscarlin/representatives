@@ -19,7 +19,7 @@ const InfoSection = styled.div`
 
 export default ({ person }) => (
   <CardContainer>
-    <Image src={person.photoUrl} alt={person.name}/>
+    <Image className='image' src={person.photoUrl} alt={person.name}/>
     <InfoSection>
       <div className='name'>{person.name}</div>
       <div className='email'>{person.email}</div>
