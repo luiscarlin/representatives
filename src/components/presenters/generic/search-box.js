@@ -111,7 +111,6 @@ export default class extends React.Component {
 // 	font-size: rem(36);
 // }
 
-
   render() {
     return (
       <div>
