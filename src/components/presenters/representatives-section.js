@@ -1,18 +1,13 @@
 import React from 'react'
 import Card from './generic/card'
-import styled from 'styled-components'
-
-const CardsSection = styled.div`
-  display: flex;
-  flex-flow: wrap;
-`
+import './representatives-section.scss'
 
 const representativeCards = (representatives) => (
   representatives.map((rep, index) => <Card person={rep} key={index} />)
 )
 
 export default ({ representatives }) => (
-  <CardsSection>
+  <div className='representatives-section'>
     { representativeCards(representatives) }
-  </CardsSection>
+  </div>
 )

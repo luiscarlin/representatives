@@ -1,30 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const CardContainer = styled.div`
-  height: 30rem;
-  border: solid grey 1px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-const Image = styled.img `
-  height: 70%;
-  width: auto;
-`
-
-const InfoSection = styled.div`
-`
+import './card.scss'
 
 export default ({ person }) => (
-  <CardContainer>
-    <Image className='image' src={person.photoUrl} alt={person.name}/>
-    <InfoSection>
+  <div className='card'>
+    <img className='image' src={person.photoUrl} alt={person.name}/>
+    <div>
       <div className='name'>{person.name}</div>
       <div className='email'>{person.email}</div>
       <div className='phone'>{person.phone}</div>
       <div className='address'>{person.address}</div>
-    </InfoSection>
-  </CardContainer>
+    </div>
+  </div>
 )
