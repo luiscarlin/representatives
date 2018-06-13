@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import './search-box.scss'
 
 export default class extends React.Component {
   constructor() {
@@ -11,7 +11,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='search-box'>
         <input type='text'
           placeholder={this.props.placeholder}
           onChange={(event) => this.setState({ searchTerm: event.target.value })}
