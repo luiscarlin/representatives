@@ -154,20 +154,11 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
-             {
-               loader: "style-loader"
-             },
-             {
-               loader: "css-loader"
-             },
-             {
-               loader: "sass-loader",
-               options: {
-                 includePaths: ["absolute/path/a", "absolute/path/b"]
-               }
-             }
-           ]
-        },
+              "style-loader", // creates style nodes from JS strings
+              "css-loader", // translates CSS into CommonJS
+              "sass-loader" // compiles Sass to CSS
+            ]
+          },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.
