@@ -10,14 +10,23 @@ export default class extends React.Component {
   }
 
   render() {
+    const inputChanged = (event) => {
+      if (event.key === 'Enter') {
+        this.props.onButtonClick(this.state.searchTerm)
+        return
+      }
+
+      this.setState({ searchTerm: event.target.value })
+    }
+
     return (
       <div className='search-box'>
-        <input type='text'
+        <input className='input-box' type='text'
           placeholder={this.props.placeholder}
-          onChange={(event) => this.setState({ searchTerm: event.target.value })}
+          onKeyPress={(event) => inputChanged(event)}
         />
-        <button onClick={() => this.props.onButtonClick(this.state.searchTerm)}>
-          Search
+        <button className='search-button' onClick={() => this.props.onButtonClick(this.state.searchTerm)}>
+          <i className='fa fa-search'></i>
         </button>
       </div>
     )
