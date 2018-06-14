@@ -1,3 +1,39 @@
+$color-white: white;
+
 .search-box {
-  width: 10rem;
+  width: 100%;
+  display: flex;
+
+
+  .input-box {
+    width: 100%;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba($color-white,.5);
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba($color-white, .5);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .search-button {
+    background: transparent;
+    border: none;
+
+    &:hover {
+      .fa-search {
+        color: lighten($color-white, 10%);
+      }
+    }
+
+    .fa-search {
+      color: $color-white;
+      font-size: 2rem;
+    }
+  }
 }

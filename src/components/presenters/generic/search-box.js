@@ -12,12 +12,12 @@ export default class extends React.Component {
   render() {
     return (
       <div className='search-box'>
-        <input type='text'
+        <input className='input-box' type='text'
           placeholder={this.props.placeholder}
           onChange={(event) => this.setState({ searchTerm: event.target.value })}
         />
-        <button onClick={() => this.props.onButtonClick(this.state.searchTerm)}>
-          Search
+        <button className='search-button' onClick={() => this.props.onButtonClick(this.state.searchTerm)}>
+          <i className='fa fa-search'></i>
         </button>
       </div>
     )
