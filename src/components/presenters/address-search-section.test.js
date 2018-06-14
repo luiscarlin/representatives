@@ -9,11 +9,11 @@ describe('Address Search', () => {
     subject = shallow(<AddressSearch onSearchClick={ onSearchClickSpy } />)
   })
 
-  it('renders a SearchBox element with placeholder "Enter your address"', () => {
+  it('renders a SearchBox element with placeholder "Search with your address..."', () => {
     expect(subject.find(SearchBox)).toHaveLength(1)
-    expect(subject.find(SearchBox).props().placeholder).toBe('Enter your address')
+    expect(subject.find(SearchBox).props().placeholder).toBe('Search with your address...')
   })
-  
+
   it('renders a SearchBox element with onSearchClick function as buttonClick handler', () => {
     expect(subject.find(SearchBox)).toHaveLength(1)
     expect(subject.find(SearchBox).props().onButtonClick).toBe(onSearchClickSpy)
