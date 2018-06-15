@@ -1,4 +1,7 @@
 $color-white: white;
+$inactive-color: rgba($color-white, .5);
+$active-color: rgba($color-white, .8);
+$borders: 1px solid $inactive-color;
 
 .search-box {
   width: 100%;
@@ -9,11 +12,11 @@ $color-white: white;
     height: 3rem;
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba($color-white,.5);
+    border-bottom: $borders;
     box-sizing: border-box;
     font-size: 2rem;
     font-weight: 300;
-    color: rgba($color-white, .5);
+    color: $active-color;
 
     &:focus {
       outline: none;
@@ -22,17 +25,23 @@ $color-white: white;
 
   .search-button {
     background: transparent;
-    border: none;
+    border: $borders;
+    cursor: pointer;
+
+    .fa-search {
+      color: $inactive-color;
+      font-size: 2rem;
+    }
 
     &:hover {
       .fa-search {
-        color: lighten($color-white, 10%);
+        color: $active-color
       }
+      border: 1px solid $active-color
     }
 
-    .fa-search {
-      color: $color-white;
-      font-size: 2rem;
+    &:focus {
+      outline: none;
     }
   }
 }
