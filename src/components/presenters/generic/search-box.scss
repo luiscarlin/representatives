@@ -35,9 +35,16 @@ $borders: 1px solid $inactive-color;
 
     &:hover {
       .fa-search {
-        color: $active-color
+        color: $active-color;
       }
-      border: 1px solid $active-color
+      border: 1px solid $active-color;
+    }
+
+    &:active {
+      .fa-search {
+        color: $color-white;
+      }
+      border: 1px solid $color-white;
     }
 
     &:focus {
