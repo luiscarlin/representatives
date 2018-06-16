@@ -23,7 +23,7 @@ describe('Search Box', () => {
   it('calls click handler when button is clicked with search term', () => {
     const event = { target: { value: 'what is life?' }}
 
-    subject.find('input').simulate('keyPress', event)
+    subject.find('input').simulate('change', event)
     subject.find('button').simulate('click')
     expect(onButtonClick).toHaveBeenCalledWith('what is life?')
   })

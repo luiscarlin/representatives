@@ -23,7 +23,7 @@ export default class extends React.Component {
       <div className='search-box'>
         <input className='input-box' type='text'
           placeholder={this.props.placeholder}
-          onKeyPress={(event) => inputChanged(event)}
+          onChange={(event) => inputChanged(event)}
         />
         <button className='search-button' onClick={() => this.props.onButtonClick(this.state.searchTerm)}>
           <i className='fa fa-search'></i>
