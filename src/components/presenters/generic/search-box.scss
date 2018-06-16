@@ -1,11 +1,17 @@
+@import '../../variables.scss';
+
 $color-white: white;
 $inactive-color: rgba($color-white, .5);
 $active-color: rgba($color-white, .8);
 $borders: 1px solid $inactive-color;
 
 .search-box {
-  width: 100%;
+  width: 80%;
   display: flex;
+
+  @media #{$mobileOnly} {
+    width: 100%;
+  }
 
   .input-box {
     width: 100%;
@@ -17,6 +23,11 @@ $borders: 1px solid $inactive-color;
     font-size: 2rem;
     font-weight: 300;
     color: $active-color;
+
+    @media #{$mobileOnly} {
+      font-size: 1.1rem;
+      height: 2rem;
+    }
 
     &:focus {
       outline: none;
@@ -31,6 +42,10 @@ $borders: 1px solid $inactive-color;
     .fa-search {
       color: $inactive-color;
       font-size: 2rem;
+
+      @media #{$mobileOnly} {
+        font-size: 1.1rem;
+      }
     }
 
     &:hover {
