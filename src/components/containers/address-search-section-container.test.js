@@ -15,7 +15,7 @@ describe('Address Search Connector', () => {
 
   describe('when search button is clicked', () => {
     it('dispatches a call to set the addres in the store', () => {
-      mountedComponent.node.find('input').simulate('keyPress', { target: { value: 'some address' } })
+      mountedComponent.node.find('input').simulate('keyUp', { target: { value: 'some address' } })
       mountedComponent.node.find('button').simulate('click')
       expect(mountedComponent.dispatchMock).toHaveBeenCalledWith(actionCreators.addressSearch.setAddress('some address'))
     })
