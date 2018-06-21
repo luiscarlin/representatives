@@ -24,8 +24,8 @@ export default ({ person }) => {
         <div className='social-media'>
           <i className="fab fa-twitter-square"></i>
           <i className="fab fa-facebook-square"></i>
-          <i class="fab fa-google-plus-square"></i>
-          <i class="fab fa-youtube-square"></i>
+          <i className="fab fa-google-plus-square"></i>
+          <i className="fab fa-youtube-square"></i>
         </div>
       </figcaption>
     </figure>

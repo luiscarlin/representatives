@@ -48,5 +48,25 @@
   .caption {
     background-color: #ffffff;
     padding: 25px;
+
+    .social-media {
+      i {
+        margin-right: 5px;
+        display: inline-block;
+        font-size: 24px;
+        color: #000000;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        background: white;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          background-color: #242424;
+          color: white !important;
+        }
+      }
+    }
   }
 }
