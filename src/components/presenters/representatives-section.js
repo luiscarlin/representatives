@@ -20,7 +20,25 @@ const oneRep = () => {
       city: 'Washington',
       state:'DC',
       zip: '20500'
-    }
+    },
+    socialMedia: [
+      {
+        site: 'GooglePlus',
+        handle: '+whitehouse'
+      },
+      {
+        site: 'Facebook',
+        handle: 'whitehouse'
+      },
+      {
+        site: 'Twitter',
+        handle: 'potus'
+      },
+      {
+        site: 'YouTube',
+        handle: 'whitehouse'
+      }
+    ]
   }
   return <Card person={rep} />
 }
