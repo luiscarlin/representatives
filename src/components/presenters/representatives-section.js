@@ -8,6 +8,7 @@ const representativeCards = (representatives) => (
 
 const oneRep = () => {
   const rep = {
+    website: 'https://www.whitehouse.gov/',
     photoUrl: "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg",
     office: 'President of the United States',
     email: 'hello@bye.com',
