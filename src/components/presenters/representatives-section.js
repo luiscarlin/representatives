@@ -46,6 +46,6 @@ const oneRep = () => {
 
 export default ({ representatives }) => (
   <div className='representatives-section'>
-    { oneRep() }
+    {/*{ oneRep() }*/}
   </div>
 )
