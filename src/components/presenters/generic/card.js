@@ -7,6 +7,9 @@ export default ({ person }) => {
   const socialMedia = person.socialMedia
 
   const buildSocialMedia = (socialMediaList) => {
+    if (!socialMediaList) {
+      return
+    }
     return socialMediaList.map((socialMedia, index) => {
       if (socialMedia.site === 'GooglePlus') {
         const hrefValue = `https://plus.google.com/${socialMedia.handle}`
@@ -44,8 +47,7 @@ export default ({ person }) => {
         <div className='email'>{person.email}</div>
         <div className='phone'>{person.phone}</div>
         <div className='address'>
-          <div className='address-name'>{address.name}</div>
-          <div className='address-street'>{address.street}</div>
+          <div className='address-lines'>{person.address.lines.join(',')}</div>
           <div className='address-city-state-zip'>{cityStateZip}</div>
         </div>
         <div className='social-media'>
