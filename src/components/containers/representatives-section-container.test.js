@@ -7,7 +7,13 @@ describe('Representatives Section Container', () => {
       data: [
         {
           name: 'Dr Who',
-          phone: '893'
+          phone: '893',
+          address: {
+            lines: [ 'The WhiteHouse'],
+            city: 'city field',
+            state: 'some state',
+            zip: '22222'
+          }
         }
       ]
     }
