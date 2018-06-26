@@ -1,12 +1,74 @@
+@import '../../../styles/main.scss';
+
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+
 .card {
-  height: 30rem;
-  border: solid grey 1px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 220px;
+  max-width: 310px;
+  width: 100%;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+
+  * {
+    box-sizing: border-box;
+    transition: all 0.35s ease;
+  }
 
   .image {
-    height: 70%;
-    width: auto;
+    position: relative;
+    border-bottom: 4px solid #34495e;
+    z-index: 1;
+
+    &:before {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 20px 0 20px;
+      border-color: #34495e transparent transparent transparent;
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -15px);
+      z-index: -1;
+      transition: all 0.35s ease;
+    }
+
+    img {
+      max-width: 100%;
+      vertical-align: top;
+    }
+  }
+  .caption {
+    background-color: #ffffff;
+    padding: 25px;
+
+    .social-media {
+      i {
+        margin-right: 5px;
+        display: inline-block;
+        font-size: 24px;
+        color: #000000;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        background: white;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          background-color: #242424;
+          color: white !important;
+        }
+      }
+    }
   }
 }

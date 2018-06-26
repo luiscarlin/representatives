@@ -9,18 +9,23 @@ describe('Card', () => {
       name: 'Pedro P. Pedrozo',
       email: 'pedro@pedro.com',
       phone: '(777) 777-1111',
-      address: '123 Main St. Columbus, OH 43535'
+      address: {
+        lines: [ 'The WhiteHouse'],
+        city: 'Lima',
+        state: 'some state',
+        zip: '22222'
+      }
     }
 
     subject = shallow(<Card person={person} />)
   })
 
   it('has the photo of the person', () => {
-    expect(subject.find('.image').props().src).toEqual(person.photoUrl)
+    expect(subject.find('img').props().src).toEqual(person.photoUrl)
   })
 
   it('should show person name when image fails to load', () => {
-    expect(subject.find('.image').props().alt).toEqual(person.name)
+    expect(subject.find('img').props().alt).toEqual(person.name)
   })
 
   it('has the name of the person', () => {
@@ -36,6 +41,6 @@ describe('Card', () => {
   })
 
   it('has the address of the person', () => {
-    expect(subject.find('.address').text()).toEqual(person.address)
+    expect(subject.find('.address-lines').text()).toEqual('The WhiteHouse')
   })
 })

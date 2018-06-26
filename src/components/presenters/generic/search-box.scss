@@ -1,9 +1,4 @@
-@import '../../variables.scss';
-
-$color-white: white;
-$inactive-color: rgba($color-white, .5);
-$active-color: rgba($color-white, .8);
-$borders: 1px solid $inactive-color;
+@import '../../../styles/main.scss';
 
 .search-box {
   width: 80%;
@@ -18,11 +13,11 @@ $borders: 1px solid $inactive-color;
     height: 3rem;
     background: transparent;
     border: none;
-    border-bottom: $borders;
+    border-bottom: 1px solid $primary-gray;
     box-sizing: border-box;
     font-size: 2rem;
     font-weight: 300;
-    color: $active-color;
+    color: $primary-white;
 
     @media #{$mobileOnly} {
       font-size: 1.1rem;
@@ -36,11 +31,11 @@ $borders: 1px solid $inactive-color;
 
   .search-button {
     background: transparent;
-    border: $borders;
+    border: 1px solid $primary-gray;
     cursor: pointer;
 
     .fa-search {
-      color: $inactive-color;
+      color: $primary-gray;
       font-size: 2rem;
 
       @media #{$mobileOnly} {
@@ -50,16 +45,16 @@ $borders: 1px solid $inactive-color;
 
     &:hover {
       .fa-search {
-        color: $active-color;
+        color: $primary-white;
       }
-      border: 1px solid $active-color;
+      border: 1px solid $primary-white;
     }
 
     &:active {
       .fa-search {
-        color: $color-white;
+        color: $white;
       }
-      border: 1px solid $color-white;
+      border: 1px solid $white;
     }
 
     &:focus {
