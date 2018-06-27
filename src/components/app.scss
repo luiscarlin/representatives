@@ -2,10 +2,9 @@
 
 .app {
   background-color: $dark-gray;
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
 
-  .body {
+  .page {
     max-width: 1370px;
     margin-left: auto;
     margin-right: auto;
