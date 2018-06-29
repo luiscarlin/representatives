@@ -35,12 +35,12 @@ export default ({ person }) => {
   }
 
   return (
-    <figure className='card'>
-      <div className='image'>
+    <div className='card'>
+      <figure className='image'>
         <a href={person.website || undefined}>
           <img src={person.photoUrl || capitolSvg} alt={person.name} />
         </a>
-      </div>
+      </figure>
       <figcaption className='caption'>
         <div className='name'>{person.name}</div>
         <div className='office'>{person.office}</div>
@@ -55,6 +55,6 @@ export default ({ person }) => {
           {buildSocialMedia(socialMedia)}
         </div>
       </figcaption>
-    </figure>
+    </div>
   )
 }
