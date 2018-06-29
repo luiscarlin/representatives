@@ -1,5 +1,6 @@
 import React from 'react'
 import './card.scss'
+import capitolSvg from '../../../assets/capitol.svg'
 
 export default ({ person }) => {
   const { address } = person
@@ -37,7 +38,7 @@ export default ({ person }) => {
     <figure className='card'>
       <div className='image'>
         <a href={person.website || undefined}>
-          <img src={person.photoUrl} alt={person.name} />
+          <img src={person.photoUrl || capitolSvg} alt={person.name} />
         </a>
       </div>
       <figcaption className='caption'>
