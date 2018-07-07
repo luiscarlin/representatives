@@ -1,5 +1,8 @@
+@import './styles/main.scss';
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: $dark-gray;
 }
