@@ -45,7 +45,9 @@ export default ({ person }) => {
         <div className='name'>{person.name}</div>
         <div className='office'>{person.office}</div>
         <div className='party'>{person.party}</div>
-        <div className='email'>{person.email}</div>
+        <div className='email'>
+          <a href={`mailto:${person.email}`}>{person.email}</a>
+        </div>
         <div className='phone'>
           <a href={`tel:+1${person.phone}`}>{person.phone}</a>
         </div>
