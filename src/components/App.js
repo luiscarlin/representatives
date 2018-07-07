@@ -6,6 +6,7 @@ import './app.scss'
 export default () => (
   <div className='app'>
     <div className='page'>
+      <div className='title'>Find Your Representatives</div>
       <div className='address-search-wrapper'>
         <AddressSearchSection/>
       </div>

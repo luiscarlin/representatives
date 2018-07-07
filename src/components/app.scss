@@ -7,7 +7,29 @@
     max-width: 1370px;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px 50px;
+    padding: 50px 20px;
+
+    .title {
+      color: $primary-white;
+      font-size: 5rem;
+      margin-top: 10rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      @media #{$mobileOnly} {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 6rem;
+      }
+
+      @media #{$tabletOnly} {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+    }
 
     .address-search-wrapper {
       display: flex;
