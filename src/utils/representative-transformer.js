@@ -16,7 +16,7 @@ export default (data) => {
   let transformed = officials.map(rep => {
     return {
       name: rep.name,
-      email: rep.email,
+      email: rep.emails ? rep.emails[0] : undefined,
       address: {
         lines: addressLinesTransform(rep.address[0]),
         city: rep.address[0].city,
