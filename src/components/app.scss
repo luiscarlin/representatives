@@ -19,6 +19,12 @@
       justify-content: center;
       text-align: center;
 
+      &.top {
+        margin-top: 0;
+      }
+
+      transition: margin-top .3s ease;
+
       @media #{$mobileOnly} {
         font-size: 2rem;
         margin-bottom: 1rem;
