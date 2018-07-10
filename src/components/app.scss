@@ -19,12 +19,6 @@
       justify-content: center;
       text-align: center;
 
-      &.top {
-        margin-top: 0;
-      }
-
-      transition: margin-top .3s ease;
-
       @media #{$mobileOnly} {
         font-size: 2rem;
         margin-bottom: 1rem;
@@ -35,6 +29,16 @@
         font-size: 3rem;
         margin-bottom: 2rem;
       }
+
+      &.top {
+        margin-top: 0;
+
+        @media #{desktopOnly} {
+          font-size: 3rem;
+        }
+      }
+
+      transition: margin-top .5s ease, font-size .5s ease;
     }
 
     .address-search-wrapper {
