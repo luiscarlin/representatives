@@ -1,5 +1,12 @@
+@import '../../styles/main.scss';
+
 .representatives-section {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
+
+  .loader {
+    display: block;
+    color: $primary-white;
+  }
 }
