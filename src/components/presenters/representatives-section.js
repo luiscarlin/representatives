@@ -7,9 +7,9 @@ const representativeCards = (representatives) => (
   representatives.map((rep, index) => <Card person={rep} key={index} />)
 )
 
-export default ({ representatives }) => (
+export default ({ representatives, isFetching }) => (
   <div className='representatives-section'>
-    {/*{ representativeCards(representatives) }*/}
-     <Loader classname='loader' size='massive'>Loading</Loader>
+     { !isFetching && representativeCards(representatives) }
+     { isFetching && <Loader className='loader' size='massive'>Loading</Loader> }
   </div>
 )

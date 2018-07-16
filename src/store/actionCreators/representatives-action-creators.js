@@ -7,6 +7,13 @@ const setRepresentatives = (data) => {
   }
 }
 
-export default { 
-  setRepresentatives 
+const setFetchingRepresentatives = (value) => {
+  return {
+    type: types.representatives.SET_FETCHING_REPRESENTATIVES,
+    value: value
+  }
+}
+export default {
+  setRepresentatives,
+  setFetchingRepresentatives
 }

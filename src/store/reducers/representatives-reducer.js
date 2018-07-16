@@ -4,7 +4,9 @@ import actionTypes from '../actionTypes'
 export default (state = DEFAULT_STATE.representatives, action) => {
   switch (action.type) {
     case actionTypes.representatives.SET_REPRESENTATIVES:
-      return Object.assign({}, state, { data: action.value })
+      return { ...state, ...{ data: action.value }}
+    case actionTypes.representatives.SET_FETCHING_REPRESENTATIVES:
+      return { ...state, ...{ fetching: action.value }}
     default:
       return state
   }

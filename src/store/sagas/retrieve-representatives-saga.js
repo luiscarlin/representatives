@@ -9,6 +9,8 @@ export default function * runSaga () {
   while (true) {
     yield take(types.saga.RETRIEVE_REPRESENTATIVES)
 
+    yield put(actionCreators.representatives.setFetchingRepresentatives(true))
+
     const address = yield select(selectors.address.getAddress)
 
     const { representativesData } = yield race({
@@ -17,9 +19,12 @@ export default function * runSaga () {
     })
 
     if (representativesData.length === 0) {
+    yield put(actionCreators.representatives.setFetchingRepresentatives(false))
       continue
     }
 
     yield put(actionCreators.representatives.setRepresentatives(representativesData))
+
+    yield put(actionCreators.representatives.setFetchingRepresentatives(false))
   }
 }
