@@ -21,6 +21,11 @@ describe('Retrieve Representatives Saga', () => {
       expect(nextEffectWithPreviousResult.value).toEqual(take(types.saga.RETRIEVE_REPRESENTATIVES))
     })
 
+    it('sets fetching representatives to true', () => {
+      nextEffectWithPreviousResult = gen.next()
+      expect(nextEffectWithPreviousResult.value).toEqual(put(actionCreators.representatives.setFetchingRepresentatives(true)))
+    })
+
     it('retrieves the current address from the store', () => {
       nextEffectWithPreviousResult = gen.next()
       expect(nextEffectWithPreviousResult.value).toEqual(select(getAddressSelectorMock))
