@@ -2,7 +2,17 @@
   "name": "representatives",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Luis Carlin",
+    "email": "luiscarlin@gmail.com",
+    "url": "https://github.com/LuisCarlin"
+  },
   "homepage": "http://luiscarlin.github.io/representatives",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuisCarlin/representatives.git"
+  },
+  "license": "WTFPL",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",

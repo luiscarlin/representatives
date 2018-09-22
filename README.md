@@ -18,3 +18,7 @@ yarn test
 # build and deploy to Github Pages
 yarn deploy
 ```
+
+## License
+
+WTFPL – Do What the F\*\*\* You Want to Public License
