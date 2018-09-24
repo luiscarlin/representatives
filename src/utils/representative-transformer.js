@@ -17,14 +17,14 @@ export default (data) => {
     return {
       name: rep.name,
       email: rep.emails ? rep.emails[0] : undefined,
-      address: {
+      address: rep.address ? {
         lines: addressLinesTransform(rep.address[0]),
         city: rep.address[0].city,
         state: rep.address[0].state,
         zip: rep.address[0].zip
-      },
+      } : undefined,
       party: rep.party,
-      phone: rep.phones[0],
+      phone: rep.phones ? rep.phones[0] : undefined,
       website: rep.urls && rep.urls[0],
       photoUrl: rep.photoUrl,
       socialMedia: rep.channels && rep.channels.map(ch => ({ site: ch.type, handle: ch.id }))

@@ -3,11 +3,22 @@ import './card.scss'
 import capitolSvg from '../../../assets/capitol.svg'
 
 export default ({ person }) => {
-  const { address } = person
-  const cityStateZip = `${address.city} ${address.state}, ${address.zip}`
-  const socialMedia = person.socialMedia
 
-  const buildSocialMedia = (socialMediaList) => {
+  const buildAddress = () => {
+    const { address } = person
+    const cityStateZip = `${address.city} ${address.state}, ${address.zip}`
+
+    return (
+      <div className='address'>
+        <div className='address-lines'>{person.address.lines.join(',')}</div>
+        <div className='address-city-state-zip'>{cityStateZip}</div>
+      </div>
+    )
+  }
+
+  const buildSocialMedia = () => {
+    const socialMediaList = person.socialMedia
+
     if (!socialMediaList) {
       return
     }
@@ -34,6 +45,16 @@ export default ({ person }) => {
     })
   }
 
+  const styledEmail =
+    <div className='email'>
+      <a href={`mailto:${person.email}`}>{person.email}</a>
+    </div>
+
+  const styledPhone =
+    <div className='phone'>
+      <a href={`tel:+1${person.phone}`}>{person.phone}</a>
+    </div>
+
   return (
     <div className='card'>
       <figure className='image'>
@@ -45,18 +66,11 @@ export default ({ person }) => {
         <div className='name'>{person.name}</div>
         <div className='office'>{person.office}</div>
         <div className='party'>{person.party}</div>
-        <div className='email'>
-          <a href={`mailto:${person.email}`}>{person.email}</a>
-        </div>
-        <div className='phone'>
-          <a href={`tel:+1${person.phone}`}>{person.phone}</a>
-        </div>
-        <div className='address'>
-          <div className='address-lines'>{person.address.lines.join(',')}</div>
-          <div className='address-city-state-zip'>{cityStateZip}</div>
-        </div>
+        { person.email && styledEmail }
+        { person.phone && styledPhone }
+        { person.address && buildAddress() }
         <div className='social-media'>
-          {buildSocialMedia(socialMedia)}
+          {buildSocialMedia()}
         </div>
       </figcaption>
     </div>
