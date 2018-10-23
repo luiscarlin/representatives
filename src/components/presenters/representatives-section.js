@@ -8,7 +8,7 @@ const representativeCards = (representatives) => (
 
 export default ({ representatives, isFetching }) => (
   <div className='representatives-section'>
-     { !isFetching && representativeCards(representatives) }
      { isFetching && <div className="loader">Loading...</div> }
+     { !isFetching && representativeCards(representatives) }
   </div>
 )

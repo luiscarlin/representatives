@@ -1,6 +1,7 @@
 import React from 'react'
 import './card.scss'
 import capitolSvg from '../../../assets/capitol.svg'
+import Img from 'react-image'
 
 export default ({ person }) => {
 
@@ -59,7 +60,7 @@ export default ({ person }) => {
     <div className='card'>
       <figure className='image'>
         <a href={person.website || undefined}>
-          <img src={person.photoUrl || capitolSvg} alt={person.name} />
+          <Img src={[person.photoUrl, capitolSvg]} loader={<div className="image-loader">"Loading image"</div>}/>
         </a>
       </figure>
       <figcaption className='caption'>
