@@ -60,7 +60,7 @@ export default ({ person }) => {
     <div className='card'>
       <figure className='image'>
         <a href={person.website || undefined}>
-          <Img src={[person.photoUrl, capitolSvg]} loader={<div className="image-loader">"Loading image"</div>}/>
+          <Img src={[person.photoUrl, capitolSvg]} loader={<img src={capitolSvg} alt={person.name}/>}/>
         </a>
       </figure>
       <figcaption className='caption'>
