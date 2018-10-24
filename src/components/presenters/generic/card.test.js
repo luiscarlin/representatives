@@ -1,4 +1,6 @@
+import Img from 'react-image'
 import Card from './card'
+import capitolSvg from '../../../assets/capitol.svg'
 
 describe('Card', () => {
   let person, subject
@@ -21,11 +23,15 @@ describe('Card', () => {
   })
 
   it('has the photo of the person', () => {
-    expect(subject.find('img').props().src).toEqual(person.photoUrl)
+    expect(subject.find(Img).props().src[0]).toEqual(person.photoUrl)
   })
 
-  it('should show person name when image fails to load', () => {
-    expect(subject.find('img').props().alt).toEqual(person.name)
+  it('has the capitol as a backup if the image fails to load', () => {
+    expect(subject.find(Img).props().src[1]).toEqual(capitolSvg)
+  })
+
+  it('displays the capitor while the person image is loading', () => {
+    expect(subject.find(Img).props().loader).toEqual(<img alt="Pedro P. Pedrozo" src="capitol.svg" />)
   })
 
   it('has the name of the person', () => {
