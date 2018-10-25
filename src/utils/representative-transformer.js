@@ -40,7 +40,7 @@ export default (data) => {
   Object.keys(divisions).forEach(divisionIndex => {
     let currentDivision = divisions[divisionIndex]
     if(currentDivision.officeIndices) {
-      currentDivision.officeIndices.forEach(index => { // TODO - i think this is failing
+      currentDivision.officeIndices.forEach(index => {
         transformed[index].division = currentDivision.name
       })
     }

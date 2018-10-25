@@ -1,6 +1,7 @@
 import AddressSearch from '../presenters/address-search-section'
 import AddressSearchContainer from './address-search-section-container'
 import actionCreators from '../../store/actionCreators'
+import Autocomplete from 'react-google-autocomplete';
 
 describe('Address Search Connector', () => {
   let mountedComponent
@@ -15,13 +16,14 @@ describe('Address Search Connector', () => {
 
   describe('when search button is clicked', () => {
     it('dispatches a call to set the addres in the store', () => {
-      mountedComponent.node.find('input').simulate('keyUp', { target: { value: 'some address' } })
-      mountedComponent.node.find('button').simulate('click')
+      mountedComponent.node.find(Autocomplete).props().onPlaceSelected({formatted_address: 'some address'})
+
       expect(mountedComponent.dispatchMock).toHaveBeenCalledWith(actionCreators.addressSearch.setAddress('some address'))
     })
 
     it('dispatches a call to retrieve representatives', () => {
-      mountedComponent.node.find('button').simulate('click')
+        mountedComponent.node.find(Autocomplete).props().onPlaceSelected({formatted_address: 'some address'})
+
       expect(mountedComponent.dispatchMock).toHaveBeenCalledWith(actionCreators.saga.retrieveRepresentatives())
     })
   })
