@@ -8,6 +8,17 @@ enzyme.configure({ adapter: new Adapter() })
 window.shallow = enzyme.shallow
 window.React = React
 
+const googleMock = {
+  maps: {
+    places: {
+      Autocomplete: class {
+        addListener() {}
+      }
+    }
+  }
+}
+window.google = googleMock
+
 window.mountComponentWithState = (Component, state) => {
   let dispatchMock = jest.fn()
 

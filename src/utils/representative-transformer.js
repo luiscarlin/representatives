@@ -39,9 +39,12 @@ export default (data) => {
 
   Object.keys(divisions).forEach(divisionIndex => {
     let currentDivision = divisions[divisionIndex]
-    currentDivision.officeIndices.forEach(index => {
-      transformed[index].division = currentDivision.name
-    })
+    if(currentDivision.officeIndices) {
+      currentDivision.officeIndices.forEach(index => {
+        transformed[index].division = currentDivision.name
+      })
+    }
+   
   })
 
   console.log('transformed', transformed)
