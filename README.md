@@ -15,7 +15,7 @@ yarn start
 # run tests
 yarn test
 
-# build and deploy to Github Pages
+# bundle and deploy to Github Pages
 yarn deploy
 ```
 
