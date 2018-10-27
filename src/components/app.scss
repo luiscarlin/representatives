@@ -33,7 +33,7 @@
       &.top {
         margin-top: 0;
 
-        @media #{desktopOnly} {
+        @media #{$desktopOnly} {
           font-size: 3rem;
         }
       }
