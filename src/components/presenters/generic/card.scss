@@ -55,8 +55,36 @@
   .caption {
     height: 14rem;
     background-color: #ffffff;
-    padding: 25px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
+    .info-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .office, .party, .email, .phone, .address {
+        padding: 1px;
+        /* font-size: 0.8rem; TODO - text can overflow over social media icons */
+      }
+
+      .email, .phone, .address {
+        font-size: 0.9rem;
+        color: #5b5b5b; // #707070, #848484, #999999, #adadad
+      }
+
+      .address {
+        padding-top: 2px;
+      }
+
+      .name {
+        font-size: 1.4rem;
+        color: $dark-gray;
+        padding: 5px;
+      }
+    }
     .social-media {
       i {
         margin-right: 5px;
