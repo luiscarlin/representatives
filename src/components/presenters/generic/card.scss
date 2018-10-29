@@ -61,18 +61,13 @@
     justify-content: space-between;
 
     .info-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
       .office, .party, .email, .phone, .address {
         padding: 1px;
-        /* font-size: 0.8rem; TODO - text can overflow over social media icons */
       }
 
       .email, .phone, .address {
         font-size: 0.9rem;
-        color: #5b5b5b; /* #707070, #848484, #999999, #adadad */
+        color: #5b5b5b;
       }
 
       .address {
