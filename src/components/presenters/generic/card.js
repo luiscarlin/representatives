@@ -31,7 +31,7 @@ export default ({ person }) => {
   return (
     <div className='card'>
       <figure className='image'>
-        <a href={person.website || undefined} target='_blank'>
+        <a href={person.website || undefined} target='_blank' rel="noopener noreferrer">
           <Img src={[person.photoUrl, capitolSvg]} loader={<img src={capitolSvg} alt={person.name}/>}/>
         </a>
       </figure>
