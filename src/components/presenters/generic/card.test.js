@@ -1,5 +1,6 @@
 import Img from 'react-image'
 import Card from './card'
+import SocialMediaIconContainer from '../social-media-icon-container'
 import capitolSvg from '../../../assets/capitol.svg'
 
 describe('Card', () => {
@@ -16,7 +17,8 @@ describe('Card', () => {
         city: 'Lima',
         state: 'some state',
         zip: '22222'
-      }
+      },
+      socialMedia: ['facebook', 'youtube']
     }
 
     subject = shallow(<Card person={person} />)
@@ -30,8 +32,8 @@ describe('Card', () => {
     expect(subject.find(Img).props().src[1]).toEqual(capitolSvg)
   })
 
-  it('displays the capitor while the person image is loading', () => {
-    expect(subject.find(Img).props().loader).toEqual(<img alt="Pedro P. Pedrozo" src="capitol.svg" />)
+  it('displays the capitol while the person image is loading', () => {
+    expect(subject.find(Img).props().loader).toEqual(<img alt="Pedro P. Pedrozo" src="capitol.svg" target="_blank"/>)
   })
 
   it('has the name of the person', () => {
@@ -48,5 +50,10 @@ describe('Card', () => {
 
   it('has the address of the person', () => {
     expect(subject.find('.address-lines').text()).toEqual('The WhiteHouse')
+  })
+
+
+  it('renders social media links container', () => {
+    expect(subject.find(SocialMediaIconContainer).props().socialMedia).toEqual(['facebook', 'youtube'])
   })
 })
