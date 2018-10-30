@@ -33,7 +33,7 @@ describe('Card', () => {
   })
 
   it('displays the capitol while the person image is loading', () => {
-    expect(subject.find(Img).props().loader).toEqual(<img alt="Pedro P. Pedrozo" src="capitol.svg" target="_blank"/>)
+    expect(subject.find(Img).props().loader).toEqual(<img alt="Pedro P. Pedrozo" src="capitol.svg"/>)
   })
 
   it('has the name of the person', () => {
