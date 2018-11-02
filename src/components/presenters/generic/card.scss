@@ -52,6 +52,7 @@
       background-color: $primary-gray;
     }
   }
+
   .caption {
     height: 14rem;
     background-color: #ffffff;
@@ -81,4 +82,29 @@
       }
     }
   }
+}
+
+.slide-up {
+	animation-name: slide-up;
+	-webkit-animation-name: slide-up;	
+	animation-duration: 0.75s;	
+	-webkit-animation-duration: 0.75s;
+}
+
+@keyframes slide-up {
+	0% {
+		transform: translateY(100%);
+	}		
+	100% {
+		transform: translateY(0%);
+	}	
+}
+
+@-webkit-keyframes slide-up {
+	0% {
+		-webkit-transform: translateY(100%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+	}	
 }
