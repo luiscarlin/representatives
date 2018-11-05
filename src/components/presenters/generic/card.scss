@@ -79,6 +79,10 @@
         font-size: 1.4rem;
         color: $dark-gray;
         padding: 5px;
+
+        @media #{$mobileOnly} {
+          padding: 3px;
+        }
       }
     }
   }
