@@ -79,32 +79,38 @@
         font-size: 1.4rem;
         color: $dark-gray;
         padding: 5px;
+
+        @media #{$mobileOnly} {
+          padding: 3px;
+        }
       }
     }
   }
 }
 
-.slide-up {
-	animation-name: slide-up;
-	-webkit-animation-name: slide-up;	
-	animation-duration: 0.75s;	
-	-webkit-animation-duration: 0.75s;
-}
+@media #{$desktopOnly} {
+  .slide-up {
+    animation-name: slide-up;
+    -webkit-animation-name: slide-up;
+    animation-duration: 0.75s;
+    -webkit-animation-duration: 0.75s;
+  }
 
-@keyframes slide-up {
-	0% {
-		transform: translateY(100%);
-	}		
-	100% {
-		transform: translateY(0%);
-	}	
-}
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
 
-@-webkit-keyframes slide-up {
-	0% {
-		-webkit-transform: translateY(100%);
-	}
-	100% {
-		-webkit-transform: translateY(0%);
-	}	
+  @-webkit-keyframes slide-up {
+    0% {
+      -webkit-transform: translateY(100%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
 }
