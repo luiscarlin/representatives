@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import Store from './store/store'
 import './index.scss'
 import App from './components/App'
-import ProfilePage from './components/presenters/ProfilePage'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ProfilePageContainer from "./components/containers/ProfilePageContainer";
 // import { unregister } from './registerServiceWorker';
 
 const rootElement = document.getElementById('root')
@@ -15,7 +15,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path='/' component={App} />
-        <Route path='/profile/:name' component={ProfilePage} />
+        <Route path='/profile/:name' component={ProfilePageContainer} />
       </div>
     </Router>
   </Provider>,

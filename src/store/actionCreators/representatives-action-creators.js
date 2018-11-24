@@ -13,6 +13,7 @@ const setFetchingRepresentatives = (value) => {
     value: value
   }
 }
+
 export default {
   setRepresentatives,
   setFetchingRepresentatives
