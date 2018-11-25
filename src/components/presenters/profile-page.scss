@@ -1,5 +1,18 @@
-.profile-container {
-  height: 500px;
-  backgrounnd-color: cyan;
-  font-size: 28px;
-}
+  .profile-modal {
+    width: 90vw;
+    height: 90vh;
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    .representative-name {
+      font-size: 18px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }

@@ -3,9 +3,8 @@ import './card.scss'
 import SocialMediaIconContainer from '../social-media-icon-container'
 import capitolSvg from '../../../assets/capitol.svg'
 import Img from 'react-image'
-import { Link } from "react-router-dom";
 
-export default ({ person }) => {
+export default ({ person, showProfileModal }) => {
 
   const buildAddress = () => {
     const { address } = person
@@ -29,16 +28,16 @@ export default ({ person }) => {
       <a href={`tel:+1${person.phone}`}>{person.phone}</a>
     </div>
 
-  const hyphenatedName = (name) => name.replace(/ +/g, '-').replace('.', '').toLowerCase()
+  // const hyphenatedName = (name) => name.replace(/ +/g, '-').replace('.', '').toLowerCase()
 
   return (
     <div className='card slide-up'>
       <figure className='image'>
-        {/*<a href={person.website || undefined} target='_blank' rel="noopener noreferrer">*/}
-        <Link to={`/profile/${hyphenatedName(person.name)}`}>
-          <Img src={[person.photoUrl, capitolSvg]} loader={<img src={capitolSvg} alt={person.name}/>} />
-        </Link>
-        {/*</a>*/}
+        <Img
+          src={[person.photoUrl, capitolSvg]}
+          loader={<img src={capitolSvg} alt={person.name}/>}
+          onClick={() => showProfileModal(person.name)}
+        />
       </figure>
       <figcaption className='caption'>
         <div className='info-container'>

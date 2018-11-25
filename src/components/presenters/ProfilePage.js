@@ -4,10 +4,14 @@ import './profile-page.scss'
 class ProfilePage extends React.Component {
 
   render() {
-    const currentRepresentative = this.props.representativeInfo(this.props.match.params.name)
+    const classes = []
+    classes.push('profile-modal')
+    if (!this.props.shouldDisplayModal) {
+      classes.push('hidden')
+    }
 
-    return <div className='profile-container'>
-      Hello {currentRepresentative && currentRepresentative.name}
+    return <div className={classes.join(' ')}>
+      <div className='representative-name'>{this.props.representativeInfo.name}</div>
     </div>
   }
 }
