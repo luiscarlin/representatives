@@ -8,25 +8,9 @@ import axios from 'axios'
 
 class app extends React.Component {
   componentWillMount() {
-    // fetch('https://www.politifact.com/api/v/2/statementlist/?speaker__name_slug=nancy-pelosi&limit=50&format=json', {
-    //   mode: 'cors',
-    //   method: 'GET',
-    //   headers: {
-    //     'Access-Control-Allow-Origin':'*',
-    //     'Content-Type': 'text/json'
-    //   }
-    // })
-    // .then(response => {
-    //   console.log('SUCCESS:', 'https://www.politifact.com/api/v/2/statementlist/?speaker__name_slug=nancy-pelosi&limit=50&format=json')
-    //   console.log(response.json())
-    // })
-    // .catch(error => console.log('ERROR:', error))
-
-    axios.get('https://www.politifact.com/api/v/2/statementlist/?speaker__name_slug=donald-trump&limit=100&format=json',
-    { headers: { 'crossDomain': true, 'Content-Type': 'application/json'}})
+    axios.get('https://cors-anywhere.herokuapp.com/https://www.politifact.com/api/v/2/statementlist/?speaker__name_slug=nancy-pelosi&limit=50&format=json')
     .then(response => {
-      console.log('SUCCESS', 'https://www.politifact.com/api/v/2/statementlist/?speaker__name_slug=donald-trump&limit=100&format=json')
-      console.log(response.json())
+      console.log(response.data)
     })
     .catch(error => console.log('ERROR:', error))
   }
