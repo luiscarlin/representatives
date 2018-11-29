@@ -28,8 +28,6 @@ export default ({ person, showProfileModal }) => {
       <a href={`tel:+1${person.phone}`}>{person.phone}</a>
     </div>
 
-  // const hyphenatedName = (name) => name.replace(/ +/g, '-').replace('.', '').toLowerCase()
-
   return (
     <div className='card slide-up'>
       <figure className='image'>
