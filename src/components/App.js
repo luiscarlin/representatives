@@ -5,8 +5,11 @@ import AddressSearchSection from './containers/address-search-section-container'
 import RepresentativesSection from './containers/representatives-section-container'
 import './app.scss'
 
-const app = ({ address }) => (
-  <div className='app'>
+const app = ({ address }) => {
+
+  fetch('/ping').then(response => console.log(response.json()))
+
+  return <div className='app'>
     <div className='page'>
       <div className={address ? 'title top' : 'title'}>Find Your Representatives</div>
       <div className='address-search-wrapper'>
@@ -15,8 +18,7 @@ const app = ({ address }) => (
       <RepresentativesSection/>
     </div>
   </div>
-)
-
+}
 const mapStateToProps = state => ({
   address: selectors.address.getAddress(state)
 })
