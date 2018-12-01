@@ -6,8 +6,7 @@ import RepresentativesSection from './containers/representatives-section-contain
 import './app.scss'
 
 const app = ({ address }) => {
-
-  fetch('/ping').then(response => console.log(response.json()))
+  fetch('/api/politifact/statementlist/?fname=donald&lname=trump').then(response => response.json()).then(console.log)
 
   return <div className='app'>
     <div className='page'>
