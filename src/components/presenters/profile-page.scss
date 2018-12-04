@@ -34,34 +34,42 @@
 
         .name {
           font-size: 36px;
-          color: #D9B310;
+          color: #D9B310;//5c848e
           padding: 10px;
         }
 
         .office {
-          font-size: 24px;
-          color: #cacaca;
-        }
-
-        .party {
           font-size: 18px;
           color: #cacaca;
-          padding-top: 2px;
           padding-bottom: 10px;
         }
       }
     }
 
-    .division {
-      font-size: 18px;
-      color: #D9B310;
-      padding-top: 2px;
-      padding-bottom: 10px;
-    }
+    .carousel-container {
+      padding-top: 20px;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
 
+      .carousel-header {
+        font-size: 28px;
+        color: #1D2731;
+        padding: 10px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
 
   }
 
   .hidden {
     display: none;
+  }
+
+  .non-scrollable {
+    //overflow: hidden;
   }

@@ -22,11 +22,28 @@ class ProfilePage extends React.Component {
               loader={<img src={capitolSvg} alt={this.props.representativeInfo.name}/>}
             />
             <div className='name'>{this.props.representativeInfo.name}</div>
-            <div className='office'>{this.props.representativeInfo.office}</div>
-            <div className='party'>{this.props.representativeInfo.party}</div>
+            <div className='office'>
+              {this.props.representativeInfo.office} - {this.props.representativeInfo.party} Party
+            </div>
           </div>
         </div>
-      <div className='division'>{this.props.representativeInfo.division}</div>
+      <div className='carousel-container'>
+        <div className='carousel-header'>Recent Tweets</div>
+        <Carousel>
+          <div>
+            <img src={require("../../assets/twitter-placeholder.png")} alt={''} />
+          </div>
+          <div>
+            <img src={require("../../assets/twitter-placeholder.png")} alt={''} />
+          </div>
+          <div>
+            <img src={require("../../assets/twitter-placeholder.png")} alt={''} />
+          </div>
+          <div>
+            <img src={require("../../assets/twitter-placeholder.png")} alt={''} />
+          </div>
+        </Carousel>
+      </div>
     </div>
   }
 }
