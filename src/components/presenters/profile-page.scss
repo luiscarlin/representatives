@@ -1,16 +1,65 @@
   .profile-modal {
-    width: 90vw;
-    height: 90vh;
-    background-color: #f1f1f1;
+    width: 98vw;
+    height: 98vh;
+    background-color: #F4F7F6;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
 
-    .representative-name {
-      font-size: 18px;
+    //display: flex;
+    //flex-direction: column;
+
+    .top-banner {
+      background-color: #1D2731;//#1D1D1D;
+      height: 50vh;
+      border-bottom: 4px solid #cacaca;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .info {
+        text-align: center;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          height: 25vh;
+          border-radius: 50%;
+          vertical-align: top;
+          border: 4px solid #cacaca;
+          //background-color: $primary-gray;
+        }
+
+        .name {
+          font-size: 36px;
+          color: #D9B310;
+          padding: 10px;
+        }
+
+        .office {
+          font-size: 24px;
+          color: #cacaca;
+        }
+
+        .party {
+          font-size: 18px;
+          color: #cacaca;
+          padding-top: 2px;
+          padding-bottom: 10px;
+        }
+      }
     }
+
+    .division {
+      font-size: 18px;
+      color: #D9B310;
+      padding-top: 2px;
+      padding-bottom: 10px;
+    }
+
+
   }
 
   .hidden {
