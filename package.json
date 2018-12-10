@@ -15,6 +15,7 @@
   "license": "WTFPL",
   "dependencies": {
     "@babel/core": "7.1.0",
+    "@nivo/pie": "^0.51.0",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",

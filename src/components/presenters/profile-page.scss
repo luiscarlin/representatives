@@ -1,70 +1,75 @@
-  .profile-modal {
-    width: 98vw;
-    height: 98vh;
-    background-color: #F4F7F6;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+@import '../../styles/main.scss';
 
-    //display: flex;
-    //flex-direction: column;
+.profile-modal {
+  width: 98vw;
+  height: 98vh;
+  background-color: #F4F7F6;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  overflow-y: scroll;
 
-    .top-banner {
-      background-color: #1D2731;//#1D1D1D;
-      height: 50vh;
-      border-bottom: 4px solid #cacaca;
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
+  //display: flex;
+  //flex-direction: column;
 
-      .info {
-        text-align: center;
+  .top-banner {
+    background-color: $dark-gray;
+    height: 50vh;
+    border-bottom: 4px solid $textPrimary;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 
-        img {
-          max-width: 100%;
-          max-height: 100%;
-          height: 25vh;
-          border-radius: 50%;
-          vertical-align: top;
-          border: 4px solid #cacaca;
-          //background-color: $primary-gray;
-        }
-
-        .name {
-          font-size: 36px;
-          color: #D9B310;//5c848e
-          padding: 10px;
-        }
-
-        .office {
-          font-size: 18px;
-          color: #cacaca;
-          padding-bottom: 10px;
-        }
-      }
-    }
-
-    .carousel-container {
-      padding-top: 20px;
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-
-      .carousel-header {
-        font-size: 28px;
-        color: #1D2731;
-        padding: 10px;
-      }
+    .info {
+      text-align: center;
 
       img {
         max-width: 100%;
-        height: auto;
+        max-height: 100%;
+        height: 25vh;
+        border-radius: 50%;
+        vertical-align: top;
+        border: 4px solid $textPrimary;
+      }
+
+      .name {
+        font-size: 36px;
+        color: $textPrimary; //5c848e
+        padding: 10px;
+      }
+
+      .office {
+        font-size: 18px;
+        color: $textPrimary;
+        padding-bottom: 10px;
       }
     }
-
   }
+
+  .truthiness {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .pie-title {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 28px;
+      color: $dark-gray;
+    }
+
+    .truth-rating {
+      font-size: 24px;
+      color: crimson;
+    }
+
+    g text {
+      font-size: 14px !important;
+    }
+  }
+}
 
   .hidden {
     display: none;
