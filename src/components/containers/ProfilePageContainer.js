@@ -1,6 +1,6 @@
-import connect from "react-redux/es/connect/connect";
 import ProfilePage from "../presenters/ProfilePage";
 import selectors from "../../store/selectors";
+import { connect } from 'react-redux'
 
 const mapStateToProps = state => ({
   representativeInfo: selectors.modal.representativeInfoForModal(state),

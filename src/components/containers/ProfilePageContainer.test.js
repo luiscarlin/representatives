@@ -1,14 +1,25 @@
-import ProfilePage from "../presenters/ProfilePage";
+import ProfilePageContainer from './ProfilePageContainer'
 
 describe('ProfilePageConnector', () => {
-  it('hides modal when there is no name of rep to show', () => {
+  it('renders information of representative', () => {
     const state = {
       modal: {
         representativeName: 'George Washington'
+      },
+      representatives: {
+        data: [
+          {
+            name: 'George Washington',
+            office: 'President'
+          },
+          {
+            name: 'Abraham Lincoln'
+          }
+        ]
       }
     }
-    const mountedComponent = mountComponentWithState(<ProfilePage />, state).node
+    const mountedComponent = mountComponentWithState(<ProfilePageContainer />, state).node
 
-    expect(mountedComponent.find(ProfilePage).length).toEqual(1)
+    expect(mountedComponent.find('.name').text()).toEqual('George Washington')
   })
 })

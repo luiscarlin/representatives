@@ -37,37 +37,37 @@ const pie = () => (
       {
         "id": "Absolute Lie",
         "label": "Absolute Lie",
-        "value": percentage(92),
+        "value": 92,
         "color": "hsl(17, 70%, 50%)"
       },
       {
         "id": "Completely False",
         "label": "Completely False",
-        "value": percentage(212),
+        "value": 212,
         "color": "hsl(195, 70%, 50%)"
       },
       {
         "id": "Barely True",
         "label": "Barely True",
-        "value": percentage(135),
+        "value": 135,
         "color": "hsl(229, 70%, 50%)"
       },
       {
         "id": "Half True",
         "label": "Half True",
-        "value": percentage(93),
+        "value": 93,
         "color": "hsl(72, 70%, 50%)"
       },
       {
         "id": "Mostly True",
         "label": "Mostly True",
-        "value": percentage(72),
+        "value": 72,
         "color": "hsl(73, 70%, 50%)"
       },
       {
         "id": "Completely True",
         "label": "Completely True",
-        "value": percentage(29),
+        "value": 29,
         "color": "hsl(229, 70%, 50%)"
       }
     ]}
@@ -144,8 +144,6 @@ const pie = () => (
 class ProfilePage extends React.Component {
 
   render() {
-    console.log('rep ', this.props.representativeInfo)
-
     const classes = []
     classes.push('profile-modal')
     if (!this.props.shouldDisplayModal) {

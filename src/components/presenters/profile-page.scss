@@ -66,7 +66,7 @@
     }
 
     g text {
-      font-size: 14px !important;
+      font-size: 14px !important; /* Need this to override Nivo styling */
     }
   }
 }
