@@ -25,10 +25,6 @@ const averageRating = () => {
   ) * 10).toFixed(2)
 }
 
-const percentage = (number) => {
-  return ((number / TOTAL_COUNT_OF_VERIFIED_COMMENTS) * 100).toFixed(2)
-}
-
 const pie = () => (
   <Pie
     width={500}
@@ -118,26 +114,6 @@ const pie = () => (
         "spacing": 10
       }
     ]}
-    // legends={[
-    //   {
-    //     "anchor": "bottom",
-    //     "direction": "row",
-    //     "translateY": 56,
-    //     "itemWidth": 100,
-    //     "itemHeight": 18,
-    //     "itemTextColor": "#999",
-    //     "symbolSize": 18,
-    //     "symbolShape": "circle",
-    //     "effects": [
-    //       {
-    //         "on": "hover",
-    //         "style": {
-    //           "itemTextColor": "#000"
-    //         }
-    //       }
-    //     ]
-    //   }
-    // ]}
   />
 )
 
