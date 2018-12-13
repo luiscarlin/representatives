@@ -4,16 +4,13 @@ import capitolSvg from "../../assets/capitol.svg";
 import Img from "react-image";
 import { Pie } from '@nivo/pie'
 
-
-const TOTAL_COUNT_OF_VERIFIED_COMMENTS = 650
-
-const averageRating = () => {
-  const absoluteLie = (0 * 92) / TOTAL_COUNT_OF_VERIFIED_COMMENTS
-  const completelyFalse = (1 * 212) / TOTAL_COUNT_OF_VERIFIED_COMMENTS
-  const barelyTrue = (2.5 * 135) / TOTAL_COUNT_OF_VERIFIED_COMMENTS
-  const halfTrue = (5 * 93) / TOTAL_COUNT_OF_VERIFIED_COMMENTS
-  const mostlyTrue = (7.5 * 72) / TOTAL_COUNT_OF_VERIFIED_COMMENTS
-  const completelyTrue = (10 * 29) / TOTAL_COUNT_OF_VERIFIED_COMMENTS
+const averageRating = (repRulings) => {
+  const absoluteLie = (0 * repRulings.pants_count) / repRulings.total_count
+  const completelyFalse = (1 * repRulings.false_count) / repRulings.total_count
+  const barelyTrue = (2.5 * repRulings.barely_true_count) / repRulings.total_count
+  const halfTrue = (5 * repRulings.half_true_count) / repRulings.total_count
+  const mostlyTrue = (7.5 * repRulings.mostly_true_count) / repRulings.total_count
+  const completelyTrue = (10 * repRulings.true_count) / repRulings.total_count
 
   return ((
     absoluteLie +
@@ -25,7 +22,7 @@ const averageRating = () => {
   ) * 10).toFixed(2)
 }
 
-const pie = () => (
+const pie = (repRulings) => (
   <Pie
     width={500}
     height={500}
@@ -33,37 +30,37 @@ const pie = () => (
       {
         "id": "Absolute Lie",
         "label": "Absolute Lie",
-        "value": 92,
+        "value": repRulings.pants_count,
         "color": "hsl(17, 70%, 50%)"
       },
       {
         "id": "Completely False",
         "label": "Completely False",
-        "value": 212,
+        "value": repRulings.false_count,
         "color": "hsl(195, 70%, 50%)"
       },
       {
         "id": "Barely True",
         "label": "Barely True",
-        "value": 135,
+        "value": repRulings.barely_true_count,
         "color": "hsl(229, 70%, 50%)"
       },
       {
         "id": "Half True",
         "label": "Half True",
-        "value": 93,
+        "value": repRulings.half_true_count,
         "color": "hsl(72, 70%, 50%)"
       },
       {
         "id": "Mostly True",
         "label": "Mostly True",
-        "value": 72,
+        "value": repRulings.mostly_true_count,
         "color": "hsl(73, 70%, 50%)"
       },
       {
         "id": "Completely True",
         "label": "Completely True",
-        "value": 29,
+        "value": repRulings.true_count,
         "color": "hsl(229, 70%, 50%)"
       }
     ]}
@@ -119,7 +116,20 @@ const pie = () => (
 
 class ProfilePage extends React.Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {repRulings: {}}
+  }
+
+  componentDidMount() {
+      fetch('/api/politifact/statementlist/?fname=donald&lname=trump')
+        .then(response => response.json())
+        .then(x => this.setState({ repRulings: x.speaker.total_rulings }))
+  }
+
   render() {
+    console.log('state: ', this.state.repRulings)
     const classes = []
     classes.push('profile-modal')
     if (!this.props.shouldDisplayModal) {
@@ -145,9 +155,9 @@ class ProfilePage extends React.Component {
           {this.props.representativeInfo.name}'s Truthfulness Rating:
         </div>
         <div className={'truth-rating'}>
-          {averageRating()}%
+          {averageRating(this.state.repRulings)}%
         </div>
-        {pie()}
+        {pie(this.state.repRulings)}
       </div>
     </div>
 
