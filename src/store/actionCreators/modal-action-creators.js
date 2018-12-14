@@ -7,4 +7,10 @@ const showModalForRepresentative = (name) => {
   }
 }
 
-export default { showModalForRepresentative }
+const hideModal = () => {
+  return {
+    type: types.modal.HIDE_MODAL,
+  }
+}
+
+export default { showModalForRepresentative, hideModal }
