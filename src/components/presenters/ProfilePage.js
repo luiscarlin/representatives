@@ -119,13 +119,13 @@ class ProfilePage extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {repRulings: {}}
+    this.state = { repRulings: {} }
   }
 
   componentDidMount() {
-      fetch('/api/politifact/statementlist/?fname=donald&lname=trump')
-        .then(response => response.json())
-        .then(x => this.setState({ repRulings: x.speaker.total_rulings }))
+    fetch('/api/politifact/statementlist/?fname=donald&lname=trump')
+      .then(response => response.json())
+      .then(response => this.setState({ repRulings: response.speaker.total_rulings }))
   }
 
   render() {
@@ -155,9 +155,9 @@ class ProfilePage extends React.Component {
           {this.props.representativeInfo.name}'s Truthfulness Rating:
         </div>
         <div className={'truth-rating'}>
-          {averageRating(this.state.repRulings)}%
+          {this.props.shouldDisplayModal && averageRating(this.state.repRulings)}%
         </div>
-        {pie(this.state.repRulings)}
+        {this.props.shouldDisplayModal && pie(this.state.repRulings)}
       </div>
     </div>
 
