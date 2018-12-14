@@ -4,7 +4,7 @@ import SocialMediaIconContainer from '../social-media-icon-container'
 import capitolSvg from '../../../assets/capitol.svg'
 import Img from 'react-image'
 
-export default ({ person }) => {
+export default ({ person, showProfileModal }) => {
 
   const buildAddress = () => {
     const { address } = person
@@ -31,9 +31,11 @@ export default ({ person }) => {
   return (
     <div className='card slide-up'>
       <figure className='image'>
-        <a href={person.website || undefined} target='_blank' rel="noopener noreferrer">
-          <Img src={[person.photoUrl, capitolSvg]} loader={<img src={capitolSvg} alt={person.name}/>}/>
-        </a>
+        <Img
+          src={[person.photoUrl, capitolSvg]}
+          loader={<img src={capitolSvg} alt={person.name}/>}
+          onClick={() => showProfileModal(person.name)}
+        />
       </figure>
       <figcaption className='caption'>
         <div className='info-container'>

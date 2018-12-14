@@ -4,7 +4,7 @@ import SocialMediaIconContainer from '../social-media-icon-container'
 import capitolSvg from '../../../assets/capitol.svg'
 
 describe('Card', () => {
-  let person, subject
+  let person, subject, mockOpenModalHandler
 
   beforeEach(() => {
     person = {
@@ -21,7 +21,9 @@ describe('Card', () => {
       socialMedia: ['facebook', 'youtube']
     }
 
-    subject = shallow(<Card person={person} />)
+    mockOpenModalHandler = jest.fn()
+
+    subject = shallow(<Card person={person} showProfileModal={mockOpenModalHandler} />)
   })
 
   it('has the photo of the person', () => {
@@ -52,8 +54,13 @@ describe('Card', () => {
     expect(subject.find('.address-lines').text()).toEqual('The WhiteHouse')
   })
 
-
   it('renders social media links container', () => {
     expect(subject.find(SocialMediaIconContainer).props().socialMedia).toEqual(['facebook', 'youtube'])
+  })
+
+  it('clicking on image opens profile page', () => {
+    subject.find(Img).simulate('click')
+
+    expect(mockOpenModalHandler).toHaveBeenCalledWith('Pedro P. Pedrozo')
   })
 })

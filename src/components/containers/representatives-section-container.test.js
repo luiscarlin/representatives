@@ -9,14 +9,15 @@ describe('Representatives Section Container', () => {
           name: 'Dr Who',
           phone: '893',
           address: {
-            lines: [ 'The WhiteHouse'],
+            lines: ['The WhiteHouse'],
             city: 'city field',
             state: 'some state',
             zip: '22222'
           }
         }
       ]
-    }
+    },
+    modal: {}
   }
 
   it('renders Representative Section Presenter', () => {
