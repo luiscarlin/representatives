@@ -11,8 +11,14 @@
   z-index: 9999;
   overflow-y: scroll;
 
-  //display: flex;
-  //flex-direction: column;
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    border: none;
+    padding: 10px;
+  }
 
   .top-banner {
     background-color: $dark-gray;

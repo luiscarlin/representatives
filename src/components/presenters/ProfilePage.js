@@ -1,6 +1,7 @@
 import React from 'react'
 import './profile-page.scss'
 import capitolSvg from "../../assets/capitol.svg";
+import xButton from '../../assets/x.svg'
 import Img from "react-image";
 import { Pie } from '@nivo/pie'
 
@@ -137,8 +138,10 @@ class ProfilePage extends React.Component {
     }
 
     return <div className={classes.join(' ')}>
+      <img className='close-button' src={xButton} onClick={this.props.closeModal} />
       <div className='top-banner'>
         <div className='info'>
+
           <Img
             src={[this.props.representativeInfo.photoUrl, capitolSvg]}
             loader={<img src={capitolSvg} alt={this.props.representativeInfo.name}/>}
