@@ -124,13 +124,16 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
+    // TODO - make this call only when we have the correct representative's name
+    console.log('this is fun')
     fetch('/api/politifact/statementlist/?fname=donald&lname=trump')
       .then(response => response.json())
-      .then(response => this.setState({ repRulings: response.speaker.total_rulings }))
+      .then(response => this.setState({ repRulings: JSON.parse(response).objects[0].speaker }))
+      // .then(x => console.log('hello there', JSON.parse(x).objects[0].speaker))
   }
 
   render() {
-    console.log('state: ', this.state.repRulings)
+    // console.log('state: ', this.state.repRulings)
     const classes = []
     classes.push('profile-modal')
     if (!this.props.shouldDisplayModal) {
