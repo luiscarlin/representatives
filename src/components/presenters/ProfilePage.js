@@ -123,14 +123,39 @@ class ProfilePage extends React.Component {
     this.state = { repRulings: {} }
   }
 
-  componentDidMount() {
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('in render', props.representativeInfo, props.representativeInfo.name, state.repRulings)
+
+  //   if (props.representativeInfo && props.representativeInfo.name) {
+  //     console.log('potato')
+  //     const firstName = props.representativeInfo.name.split(' ')[0]
+  //     const lastName = props.representativeInfo.name.split(' ').pop()
+
+  //     console.log('this is fun')
+
+  //     fetch(`/api/politifact/statementlist/?fname=${firstName}&lname=${lastName}`)
+  //       .then(response => response.json())
+  //       .then(response => setState({ repRulings: JSON.parse(response).objects[0].speaker }))
+  //     // .then(x => console.log('hello there', JSON.parse(x).objects[0].speaker))
+    // }
+    componentDidUpdate() {
+      console.log('did update', this.state.repRulings)
+      
+      if (this.props.representativeInfo && this.props.representativeInfo.name && Object.keys(this.state.repRulings).length === 0) {
+        // console.log('potato', this.state.repRulings)
+
+        const firstName = this.props.representativeInfo.name.split(' ')[0].toLowerCase()
+        const lastName = this.props.representativeInfo.name.split(' ').pop().toLowerCase()
+        console.log('am in here', firstName, lastName)
+        fetch(`/api/politifact/statementlist/?fname=${firstName}&lname=${lastName}`)
+          .then(response => response.json())
+          .then(response => this.setState({ repRulings: JSON.parse(response).objects[0].speaker }))
+      }
+    }
+      
     // TODO - make this call only when we have the correct representative's name
-    console.log('this is fun')
-    fetch('/api/politifact/statementlist/?fname=donald&lname=trump')
-      .then(response => response.json())
-      .then(response => this.setState({ repRulings: JSON.parse(response).objects[0].speaker }))
-      // .then(x => console.log('hello there', JSON.parse(x).objects[0].speaker))
-  }
+    
+    //   // .then(x => console.log('hello there', JSON.parse(x).objects[0].speaker))
 
   render() {
     // console.log('state: ', this.state.repRulings)
@@ -141,7 +166,11 @@ class ProfilePage extends React.Component {
     }
 
     return <div className={classes.join(' ')}>
-      <img className='close-button' src={xButton} onClick={this.props.closeModal} />
+      <img className='close-button' src={xButton} onClick={() => {
+          this.setState({ repRulings: {} })
+          this.props.closeModal()
+        }}
+      />
       <div className='top-banner'>
         <div className='info'>
 
@@ -156,15 +185,18 @@ class ProfilePage extends React.Component {
         </div>
       </div>
 
-      <div className='truthiness'>
-        <div className='pie-title'>
-          {this.props.representativeInfo.name}'s Truthfulness Rating:
+      {
+        Object.keys(this.state.repRulings).length !== 0 &&
+        <div className='truthiness'>
+          <div className='pie-title'>
+            {this.props.representativeInfo.name}'s Truthfulness Rating:
+          </div>
+          <div className={'truth-rating'}>
+            {this.props.shouldDisplayModal && averageRating(this.state.repRulings)}%
+          </div>
+          {this.props.shouldDisplayModal && pie(this.state.repRulings)}
         </div>
-        <div className={'truth-rating'}>
-          {this.props.shouldDisplayModal && averageRating(this.state.repRulings)}%
-        </div>
-        {this.props.shouldDisplayModal && pie(this.state.repRulings)}
-      </div>
+      }
     </div>
 
   }
