@@ -16,8 +16,7 @@ describe('Representatives Section Container', () => {
           }
         }
       ]
-    },
-    modal: {}
+    }
   }
 
   it('renders Representative Section Presenter', () => {

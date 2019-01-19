@@ -5,8 +5,5 @@ export default {
   representatives: {
     data: [],
     fetching: false
-  },
-  modal: {
-    representativeName: ''
   }
 }
