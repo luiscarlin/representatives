@@ -4,8 +4,6 @@ import { Provider } from 'react-redux'
 import Store from './store/store'
 import './index.scss'
 import App from './components/App'
-import registerServiceWorker from './registerServiceWorker'
-
 
 const rootElement = document.getElementById('root')
 
@@ -16,4 +14,9 @@ ReactDOM.render(
   rootElement
 )
 
-registerServiceWorker()
+navigator.serviceWorker.getRegistrations().then((registrations) => {
+  for (let registration of registrations) {
+   registration.unregister()
+ }}
+)
+console.log('version: 19.01')
